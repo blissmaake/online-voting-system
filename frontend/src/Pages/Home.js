@@ -12,7 +12,7 @@ function Home() {
 
     const fetchData = async () => {
       try {
-        const response = await fetch(`${BaseUrl}/voting_events`, {
+        const response = await fetch(`/voting_events`, {
           method: "GET",
           headers: { "Content-Type": "application/json" },
         })

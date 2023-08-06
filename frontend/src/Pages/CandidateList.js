@@ -8,7 +8,7 @@ function Candidates() {
   const { id } = useParams()
   const [selectedCandidateId, setSelectedCandidateId] = useState(null)
   const [hasVoted, setHasVoted] = useState(false)
-  const { addVote, BaseUrl } = useContext(VoteContext)
+  // const { addVote, } = useContext(VoteContext)
   const { current_user } = useContext(AuthContext)
 
   // useEffect(() => {
@@ -20,17 +20,17 @@ function Candidates() {
 
   useEffect(() => {
     // /candidates/by_voting_event/:voting_event_id
-    fetch(`${BaseUrl}/candidates/by_voting_event/${id}`)
+    fetch(`/candidates/by_voting_event/${id}`)
       .then((res) => res.json())
       .then((EventCandidates) => {
         console.log(EventCandidates)
         setCandidatesData(EventCandidates)
       })
-  }, [BaseUrl, candidatesData?.length, id])
+  }, [ candidatesData?.length, id])
 
   const handleVote = (candidate_id, user_id, event_id) => {
     // Send the vote to the server
-    fetch(`${BaseUrl}/user_votes`, {
+    fetch(`/user_votes`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
