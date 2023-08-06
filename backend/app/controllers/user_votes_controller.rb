@@ -28,11 +28,13 @@ class UserVotesController < ApplicationController
   #   end
   # end
 
-  def create
+ def create
     puts "@current_user: #{@current_user.inspect}"
     user_vote = UserVote.new(user_vote_params)
-    user_vote.user_id = @current_user.id
-
+    user_vote.user_id = user_vote_params[:user_id]
+    user_vote.candidate_id = user_vote_params[:candidate_id]
+    user_vote.voting_event_id= user_vote_params[:voting_event_id]
+    
     if user_vote.save
       render json: user_vote, status: :created
     else
