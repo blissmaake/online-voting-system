@@ -69,6 +69,6 @@ class VotingEventsController < ApplicationController
   end
 
   def voting_event_params
-    params.require(:voting_event).permit(:name, :date, :user_id)
+    params.require(:voting_event).permit(:eventsName, :eventsDescription, :duration, :eventDate, :user_id)
   end
 end
