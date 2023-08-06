@@ -1,0 +1,32 @@
+<%= form_with(model: events_option) do |form| %>
+  <% if events_option.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(events_option.errors.count, "error") %> prohibited this events_option from being saved:</h2>
+
+      <ul>
+        <% events_option.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :options, style: "display: block" %>
+    <%= form.text_field :options %>
+  </div>
+
+  <div>
+    <%= form.label :eventName, style: "display: block" %>
+    <%= form.text_field :eventName %>
+  </div>
+
+  <div>
+    <%= form.label :voting_event_id, style: "display: block" %>
+    <%= form.text_field :voting_event_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

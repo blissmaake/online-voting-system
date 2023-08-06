@@ -1,0 +1,37 @@
+<%= form_with(model: candidate) do |form| %>
+  <% if candidate.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(candidate.errors.count, "error") %> prohibited this candidate from being saved:</h2>
+
+      <ul>
+        <% candidate.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :role, style: "display: block" %>
+    <%= form.text_field :role %>
+  </div>
+
+  <div>
+    <%= form.label :userName, style: "display: block" %>
+    <%= form.text_field :userName %>
+  </div>
+
+  <div>
+    <%= form.label :user_vote_id, style: "display: block" %>
+    <%= form.text_field :user_vote_id %>
+  </div>
+
+  <div>
+    <%= form.label :voting_event_id, style: "display: block" %>
+    <%= form.text_field :voting_event_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

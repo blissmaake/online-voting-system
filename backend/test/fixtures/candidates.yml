@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  role: MyString
+  userName: MyString
+  user_vote: one
+  voting_event: one
+
+two:
+  role: MyString
+  userName: MyString
+  user_vote: two
+  voting_event: two
